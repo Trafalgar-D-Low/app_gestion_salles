@@ -24,3 +24,14 @@ class DataSalle:
         cnx.commit()
         curseur.close()
         cnx.close()
+
+    def update_salle(self, salle):
+        cnx = self.get_connection()
+        curseur = cnx.cursor()
+        curseur.execute(
+            "UPDATE salle SET description = %s, categorie = %s, capacite = %s WHERE code = %s",
+            (salle.description, salle.categorie, salle.capacite, salle.code)
+        )
+        cnx.commit()
+        curseur.close()
+        cnx.close()
