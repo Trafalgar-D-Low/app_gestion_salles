@@ -10,7 +10,7 @@ print("Connexion réussie :", conn)
 # Ajouter une salle
 s1 = Salle("A101", "Salle de TP", "TP", "25")
 dao.insert_salle(s1)
-print("Salle ajoutée !")
+print("Salle ajoutée!")
 
 # Afficher toutes les salles
 print("\n-------Liste des salles--------")
@@ -27,8 +27,8 @@ if s :
 # Modifier une salle
 s1.description = "Salle modifiée"
 dao.update_salle(s1)
-print("\nSalle modifiée !")
+print("\nSalle modifiée!")
 
 # Supprimer une salle
 dao.delete_salle("A101")
-print("Salle supprimée !")
+print("Salle supprimée!")
