@@ -35,3 +35,11 @@ class DataSalle:
         cnx.commit()
         curseur.close()
         cnx.close()
+
+    def delete_salle(self, salle):
+        cnx = self.get_connection()
+        curseur = cnx.cursor()
+        curseur.execute("DELETE FROM salle WHERE code = %s", (salle.code,))
+        cnx.commit()
+        curseur.close()
+        cnx.close()
