@@ -3,47 +3,52 @@ from tkinter import ttk, messagebox
 from models.salle import Salle
 from services.services_salle import ServiceSalle
 
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
 class ViewSalle(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title = "Gestion des salles"
         self.geometry = "600x600"
         self.service_salle = ServiceSalle()
+        self.resizable(False, False)
+        self.configure(fg_color="#1a1a2e")
 
         # cadre Informations Salle
-        self.cadreInfo = ctk.CTkFrame(self, corner_radius=10)
+        self.cadreInfo = ctk.CTkFrame(self, fg_color="#16213e", corner_radius=10, border_width=1, border_color="#7b2d8b")
         self.cadreInfo.pack(pady=10, padx=10, fill="x")
 
-        ctk.CTkLabel(self.cadreInfo, text="Code :").grid(row=0, column=0, padx=10, pady=5, sticky="w")
-        self.entry_code = ctk.CTkEntry(self.cadreInfo)
+        ctk.CTkLabel(self.cadreInfo, text="Code :", text_color="#c77dff", fg_color="#16213e").grid(row=0, column=0, padx=15, pady=8, sticky="e")
+        self.entry_code = ctk.CTkEntry(self.cadreInfo, fg_color="#0f3460", border_color="#7b2d8b", text_color="white")
         self.entry_code.grid(row=0, column=1, padx=10, pady=5)
 
-        ctk.CTkLabel(self.cadreInfo, text="Description :").grid(row=1, column=0, padx=10, pady=5, sticky="w")
-        self.entry_description = ctk.CTkEntry(self.cadreInfo)
+        ctk.CTkLabel(self.cadreInfo, text="Description :", text_color="#c77dff", fg_color="#16213e").grid(row=1, column=0, padx=15, pady=8, sticky="e")
+        self.entry_description = ctk.CTkEntry(self.cadreInfo, fg_color="#0f3460", border_color="#7b2d8b", text_color="white")
         self.entry_description.grid(row=1, column=1, padx=10, pady=5)
 
-        ctk.CTkLabel(self.cadreInfo, text="Catégorie :").grid(row=2, column=0, padx=10, pady=5, sticky="w")
-        self.entry_categorie = ctk.CTkEntry(self.cadreInfo)
+        ctk.CTkLabel(self.cadreInfo, text="Catégorie :", text_color="#c77dff", fg_color="#16213e").grid(row=2, column=0, padx=15, pady=8, sticky="e")
+        self.entry_categorie = ctk.CTkEntry(self.cadreInfo, fg_color="#0f3460", border_color="#7b2d8b", text_color="white")
         self.entry_categorie.grid(row=2, column=1, padx=10, pady=5)
 
-        ctk.CTkLabel(self.cadreInfo, text="Capacité :").grid(row=3, column=0, padx=10, pady=5, sticky="w")
-        self.entry_capacite = ctk.CTkEntry(self.cadreInfo)
+        ctk.CTkLabel(self.cadreInfo, text="Capacité :", text_color="#c77dff", fg_color="#16213e").grid(row=3, column=0, padx=15, pady=8, sticky="e")
+        self.entry_capacite = ctk.CTkEntry(self.cadreInfo, fg_color="#0f3460", border_color="#7b2d8b", text_color="white")
         self.entry_capacite.grid(row=3, column=1, padx=10, pady=5)
 
         # cadre Actions
         self.cadreActions = ctk.CTkFrame(self, corner_radius=10)
         self.cadreActions.pack(pady=10, padx=10)
 
-        self.btn_ajouter = ctk.CTkButton(self.cadreActions, text="Ajouter", command=self.ajouter_salle)
+        self.btn_ajouter = ctk.CTkButton(self.cadreActions, text="Ajouter", fg_color="#7b2d8b", hover_color="#9d4edd", text_color="white", corner_radius=8, command=self.ajouter_salle)
         self.btn_ajouter.grid(row=0, column=0, padx=10, pady=10)
 
-        self.btn_modifier = ctk.CTkButton(self.cadreActions, text="Modifier", command=self.modifier_salle)
+        self.btn_modifier = ctk.CTkButton(self.cadreActions, text="Modifier", fg_color="#7b2d8b", hover_color="#9d4edd", text_color="white", corner_radius=8, command=self.modifier_salle)
         self.btn_modifier.grid(row=0, column=1, padx=10, pady=10)
 
-        self.btn_supprimer = ctk.CTkButton(self.cadreActions, text="Supprimer", command=self.supprimer_salle)
+        self.btn_supprimer = ctk.CTkButton(self.cadreActions, text="Supprimer", fg_color="#7b2d8b", hover_color="#9d4edd", text_color="white", corner_radius=8, command=self.supprimer_salle)
         self.btn_supprimer.grid(row=0, column=2, padx=10, pady=10)
 
-        self.btn_rechercher = ctk.CTkButton(self.cadreActions, text="Rechercher", command=self.rechercher_salle)
+        self.btn_rechercher = ctk.CTkButton(self.cadreActions, text="Rechercher", fg_color="#7b2d8b", hover_color="#9d4edd", text_color="white", corner_radius=8, command=self.rechercher_salle)
         self.btn_rechercher.grid(row=0, column=3, padx=10, pady=10)
 
         # cadre Liste des salles
